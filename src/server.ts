@@ -13,9 +13,7 @@ const server = () => {
   app.use('/', urlRouter);
 
   app.get('/', (req, res) => {
-    res.send(
-      'Welcome to Shorten Url API 🇧🇷. \b You can access it by entering in /api route'
-    );
+    res.send('Welcome to Shorten Url API 🇧🇷');
   });
 
   const start = (port: number) => {
