@@ -2,17 +2,19 @@ import { Request, Response } from 'express';
 import { Client } from 'pg';
 import { generateShortUrl } from '../utils/functions';
 
+const dbCredentials = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
+};
+
 const urlControl = {
   async get(req: Request, res: Response) {
     try {
       const now = new Date().getTime();
-      const client = new Client({
-        host: '172.17.0.2',
-        user: 'postgres',
-        password: 'postgres',
-        port: 5432,
-        database: 'api',
-      });
+      const client = new Client(dbCredentials);
 
       client.connect();
       const { shortUrl } = req.params;
@@ -39,13 +41,7 @@ const urlControl = {
 
   async post(req: Request, res: Response) {
     try {
-      const client = new Client({
-        host: '172.17.0.2',
-        user: 'postgres',
-        password: 'postgres',
-        port: 5432,
-        database: 'api',
-      });
+      const client = new Client(dbCredentials);
 
       client.connect();
       const { url, expiryTime, leng = 5 } = req.body;
@@ -54,7 +50,7 @@ const urlControl = {
       const visibleUntil = createdAt + expiryTime * 1000;
 
       // gera ids de tamanho 5 por padrão ou length
-      const shortUrl = generateShortUrl(leng);
+      const shortUrl = generateShortUrl(Number(leng));
 
       const {
         rows,
