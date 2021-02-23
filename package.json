@@ -8,7 +8,7 @@
     "dev": "ts-node-dev -r dotenv/config --respawn  --watch src src/app.ts",
     "build": "tsc",
     "prod": "npm run build && node -r dotenv/config dist/src/app.js",
-    "start": "node -r dotenv/config dist/src/app.js"
+    "start": "npm run build && node -r dotenv/config dist/src/app.js"
   },
   "keywords": [],
   "author": "",
