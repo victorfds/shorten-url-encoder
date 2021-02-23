@@ -1,10 +1,9 @@
 import { Pool } from 'pg';
 
 export default new Pool({
-  // connectionString: 'postgres://postgres:postgres@172.17.0.2:5432/',
-  host: '172.17.0.2',
-  user: 'postgres',
-  password: 'postgres',
-  port: 5432,
-  database: 'api',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
 });
