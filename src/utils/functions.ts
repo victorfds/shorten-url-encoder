@@ -1,7 +1,7 @@
 import { customAlphabet } from 'nanoid';
 import alphanumeric from 'nanoid-dictionary/alphanumeric';
 
-const generateShortUrl = (leng) => {
+const generateShortUrl = (leng = 5) => {
   if (leng < 5) {
     const generateId = customAlphabet(alphanumeric, 5);
     return generateId();

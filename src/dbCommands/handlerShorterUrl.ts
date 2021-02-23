@@ -48,7 +48,7 @@ const urlControl = {
       });
 
       client.connect();
-      const { url, expiryTime, leng } = req.body;
+      const { url, expiryTime, leng = 5 } = req.body;
       const createdAt = new Date().getTime();
       // tempo para convertido para segundos
       const visibleUntil = createdAt + expiryTime * 1000;

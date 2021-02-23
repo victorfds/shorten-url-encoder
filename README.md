@@ -23,7 +23,7 @@ Then, once you’re inside the container, run the following:
 ```npm install -D @types/node```
 
 ### API
-Send ```POST``` request like
+Send ```POST``` request like passing the original url and ```expiryTime``` in seconds 
 ```json 
 {
 	"url": "www.youtube.com",
@@ -42,7 +42,7 @@ You can else specify the newUrl's lenght (min 5 and max 15) passing ```leng``` t
 ```json
  {
 	"url": "www.youtube.com",
-	"expiryTime": "50000",
+	"expiryTime": "30",
 	"leng": 7	
 }
 ```
