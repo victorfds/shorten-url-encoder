@@ -61,8 +61,8 @@ const urlControl = {
         'INSERT INTO urls (short_url, url, expiry_time, created_at) VALUES ($1, $2, $3, $4)',
         [shortUrl, url, visibleUntil, createdAt]
       );
-
-      res.send({ newUrl: `${process.env.SERVER_URL}/${shortUrl}` });
+      const serverAddress = process.env.SERVER_URL || '';
+      res.send({ newUrl: `${serverAddress}/${shortUrl}` });
 
       client.end();
     } catch (error) {
