@@ -11,6 +11,7 @@ DB_USER=[YOUR_USER]
 DB_PASSWORD=[YOUR_PASSWORD]
 DB_PORT=[YOUR_PORT]
 DB_DATABASE=[YOUR_DATABASE]
+SERVER_URL=[YOUR_URL_ADDRESS]
 ```
 ### How to run it
 1. ```npm install```
@@ -19,7 +20,7 @@ DB_DATABASE=[YOUR_DATABASE]
 4. ```npm run prod``` for run in production
 
 ### API 
-You can access the API clicking [here](https://documenter.getpostman.com/view/7161525/TWDZHw6y)
+You can access the full API clicking [here 🔥](https://documenter.getpostman.com/view/7161525/TWDZJbgm) 
 
 ### Running in Docker Container
 In terminal run ```docker-compose up --build``` 
@@ -36,11 +37,10 @@ Then, once you’re inside the container, run the following:
 Send ```POST``` request like passing the original url and ```expiryTime``` in seconds 
 ```json 
 {
-	"url": "www.youtube.com",
-	"expiryTime": "50000"	
+	"url": "www.youtube.com"
 }
 ```
-to localhost:3000/api
+to ```localhost:3000```
 and receive 
 ```json
 {
@@ -52,9 +52,9 @@ You can else specify the newUrl's lenght (min 5 and max 15) passing ```leng``` t
 ```json
  {
 	"url": "www.youtube.com",
-	"expiryTime": "30",
-	"leng": 7	
+	"expiryTime": "30", // segundos
+	"leng": 5 // tamanho da id a ser retornada 
 }
 ```
 
-You can access route with ```GET``` method at ```/api/Wwl4iiS``` to get redirected to the original url page
+You can access route with ```GET``` method at ```/Wlii3``` to get redirected to the original url page
