@@ -8,6 +8,7 @@ const dbCredentials = {
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
   database: process.env.DB_DATABASE,
+  ssl: true,
 };
 
 const urlControl = {
