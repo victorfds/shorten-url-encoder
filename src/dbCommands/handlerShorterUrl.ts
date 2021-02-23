@@ -47,7 +47,7 @@ const urlControl = {
       const client = new Client(dbCredentials);
 
       client.connect();
-      const { url, expiryTime, leng = 5 } = req.body;
+      const { url, expiryTime = '500', leng = 5 } = req.body;
       const createdAt = new Date().getTime();
       // tempo para convertido para segundos
       const visibleUntil = createdAt + expiryTime * 1000;
@@ -62,7 +62,7 @@ const urlControl = {
         [shortUrl, url, visibleUntil, createdAt]
       );
 
-      res.send({ newUrl: shortUrl });
+      res.send({ newUrl: `${process.env.SERVER_URL}/${shortUrl}` });
 
       client.end();
     } catch (error) {
